@@ -11,7 +11,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/1Panel-dev/1Panel/backend/global"
+	"1Panel/backend/global"
 )
 
 func GenerateSSL(domain string) error {

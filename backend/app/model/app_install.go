@@ -4,7 +4,7 @@ import (
 	"path"
 	"strings"
 
-	"github.com/1Panel-dev/1Panel/backend/constant"
+	"1Panel/backend/constant"
 )
 
 type AppInstall struct {

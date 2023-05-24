@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"time"
 
-	"github.com/1Panel-dev/1Panel/backend/init/cache/badger_db"
+	"1Panel/backend/init/cache/badger_db"
 )
 
 type SessionUser struct {

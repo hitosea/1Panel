@@ -3,11 +3,11 @@ package v1
 import (
 	"encoding/base64"
 
-	"github.com/1Panel-dev/1Panel/backend/app/api/v1/helper"
-	"github.com/1Panel-dev/1Panel/backend/app/dto"
-	"github.com/1Panel-dev/1Panel/backend/constant"
-	"github.com/1Panel-dev/1Panel/backend/global"
-	"github.com/1Panel-dev/1Panel/backend/utils/copier"
+	"1Panel/backend/app/api/v1/helper"
+	"1Panel/backend/app/dto"
+	"1Panel/backend/constant"
+	"1Panel/backend/global"
+	"1Panel/backend/utils/copier"
 	"github.com/gin-gonic/gin"
 )
 

@@ -3,19 +3,19 @@ package service
 import (
 	"context"
 	"fmt"
-	"github.com/1Panel-dev/1Panel/backend/utils/files"
+	"1Panel/backend/utils/files"
 	"os"
 	"path"
 	"strings"
 	"sync"
 	"time"
 
-	"github.com/1Panel-dev/1Panel/backend/app/model"
-	"github.com/1Panel-dev/1Panel/backend/app/repo"
-	"github.com/1Panel-dev/1Panel/backend/constant"
-	"github.com/1Panel-dev/1Panel/backend/global"
-	"github.com/1Panel-dev/1Panel/backend/utils/cloud_storage"
-	"github.com/1Panel-dev/1Panel/backend/utils/cmd"
+	"1Panel/backend/app/model"
+	"1Panel/backend/app/repo"
+	"1Panel/backend/constant"
+	"1Panel/backend/global"
+	"1Panel/backend/utils/cloud_storage"
+	"1Panel/backend/utils/cmd"
 	"github.com/pkg/errors"
 )
 

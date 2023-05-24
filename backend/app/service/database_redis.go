@@ -9,9 +9,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/1Panel-dev/1Panel/backend/app/dto"
-	"github.com/1Panel-dev/1Panel/backend/constant"
-	"github.com/1Panel-dev/1Panel/backend/utils/compose"
+	"1Panel/backend/app/dto"
+	"1Panel/backend/constant"
+	"1Panel/backend/utils/compose"
 	_ "github.com/go-sql-driver/mysql"
 )
 

@@ -8,7 +8,7 @@ import (
 	"encoding/json"
 	"encoding/pem"
 	"fmt"
-	"github.com/1Panel-dev/1Panel/backend/utils/files"
+	"1Panel/backend/utils/files"
 	"gopkg.in/yaml.v3"
 	"os"
 	"path"

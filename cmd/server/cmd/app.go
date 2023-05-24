@@ -3,8 +3,8 @@ package cmd
 import (
 	"bytes"
 	"fmt"
-	"github.com/1Panel-dev/1Panel/backend/utils/files"
-	"github.com/1Panel-dev/1Panel/cmd/server/app"
+	"1Panel/backend/utils/files"
+	"1Panel/cmd/server/app"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"io"

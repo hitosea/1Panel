@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/1Panel-dev/1Panel/backend/app/model"
-	"github.com/1Panel-dev/1Panel/backend/constant"
-	"github.com/1Panel-dev/1Panel/backend/global"
-	"github.com/1Panel-dev/1Panel/backend/utils/common"
-	"github.com/1Panel-dev/1Panel/backend/utils/encrypt"
+	"1Panel/backend/app/model"
+	"1Panel/backend/constant"
+	"1Panel/backend/global"
+	"1Panel/backend/utils/common"
+	"1Panel/backend/utils/encrypt"
 
 	"github.com/go-gormigrate/gormigrate/v2"
 	"gorm.io/gorm"

@@ -5,12 +5,12 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/1Panel-dev/1Panel/backend/app/model"
-	"github.com/1Panel-dev/1Panel/backend/constant"
-	"github.com/1Panel-dev/1Panel/backend/global"
-	"github.com/1Panel-dev/1Panel/backend/init/db"
-	"github.com/1Panel-dev/1Panel/backend/init/log"
-	"github.com/1Panel-dev/1Panel/backend/init/viper"
+	"1Panel/backend/app/model"
+	"1Panel/backend/constant"
+	"1Panel/backend/global"
+	"1Panel/backend/init/db"
+	"1Panel/backend/init/log"
+	"1Panel/backend/init/viper"
 )
 
 func TestCronS(t *testing.T) {

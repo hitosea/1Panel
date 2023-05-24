@@ -11,11 +11,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/1Panel-dev/1Panel/backend/app/dto"
-	"github.com/1Panel-dev/1Panel/backend/global"
-	"github.com/1Panel-dev/1Panel/backend/utils/cmd"
-	"github.com/1Panel-dev/1Panel/backend/utils/common"
-	"github.com/1Panel-dev/1Panel/backend/utils/files"
+	"1Panel/backend/app/dto"
+	"1Panel/backend/global"
+	"1Panel/backend/utils/cmd"
+	"1Panel/backend/utils/common"
+	"1Panel/backend/utils/files"
 )
 
 type UpgradeService struct{}

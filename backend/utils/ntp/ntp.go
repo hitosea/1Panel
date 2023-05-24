@@ -7,7 +7,7 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/1Panel-dev/1Panel/backend/utils/cmd"
+	"1Panel/backend/utils/cmd"
 )
 
 const ntpEpochOffset = 2208988800

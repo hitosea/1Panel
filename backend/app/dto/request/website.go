@@ -1,7 +1,7 @@
 package request
 
 import (
-	"github.com/1Panel-dev/1Panel/backend/app/dto"
+	"1Panel/backend/app/dto"
 )
 
 type WebsiteSearch struct {

@@ -1,11 +1,11 @@
 package response
 
 import (
-	"github.com/1Panel-dev/1Panel/backend/app/dto"
-	"github.com/1Panel-dev/1Panel/backend/app/dto/request"
+	"1Panel/backend/app/dto"
+	"1Panel/backend/app/dto/request"
 	"time"
 
-	"github.com/1Panel-dev/1Panel/backend/app/model"
+	"1Panel/backend/app/model"
 )
 
 type AppRes struct {

@@ -3,8 +3,8 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/1Panel-dev/1Panel/backend/configs"
-	"github.com/1Panel-dev/1Panel/cmd/server/conf"
+	"1Panel/backend/configs"
+	"1Panel/cmd/server/conf"
 	"gopkg.in/yaml.v3"
 
 	"github.com/spf13/cobra"

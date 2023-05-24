@@ -2,7 +2,7 @@ package docker
 
 import (
 	"context"
-	"github.com/1Panel-dev/1Panel/backend/global"
+	"1Panel/backend/global"
 
 	"github.com/docker/docker/api/types"
 	"github.com/docker/docker/api/types/filters"

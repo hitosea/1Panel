@@ -4,8 +4,8 @@ import (
 	"context"
 	"time"
 
-	"github.com/1Panel-dev/1Panel/backend/constant"
-	"github.com/1Panel-dev/1Panel/backend/utils/files"
+	"1Panel/backend/constant"
+	"1Panel/backend/utils/files"
 	"github.com/qiniu/go-sdk/v7/auth"
 	"github.com/qiniu/go-sdk/v7/auth/qbox"
 	"github.com/qiniu/go-sdk/v7/storage"

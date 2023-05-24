@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/1Panel-dev/1Panel/cmd/server/cmd"
-	_ "github.com/1Panel-dev/1Panel/cmd/server/docs"
+	"1Panel/cmd/server/cmd"
+	_ "1Panel/cmd/server/docs"
 	_ "net/http/pprof"
 )
 

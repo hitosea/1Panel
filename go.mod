@@ -1,4 +1,4 @@
-module github.com/1Panel-dev/1Panel
+module 1Panel
 
 go 1.19
 

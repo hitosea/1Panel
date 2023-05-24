@@ -4,7 +4,7 @@ import (
 	"errors"
 	"os"
 
-	"github.com/1Panel-dev/1Panel/backend/utils/firewall/client"
+	"1Panel/backend/utils/firewall/client"
 )
 
 type FirewallClient interface {

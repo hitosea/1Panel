@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"gorm.io/gorm/clause"
 
-	"github.com/1Panel-dev/1Panel/backend/app/model"
-	"github.com/1Panel-dev/1Panel/backend/global"
+	"1Panel/backend/app/model"
+	"1Panel/backend/global"
 	"gorm.io/gorm"
 )
 

@@ -1,10 +1,10 @@
 package job
 
 import (
-	"github.com/1Panel-dev/1Panel/backend/app/repo"
-	"github.com/1Panel-dev/1Panel/backend/app/service"
-	"github.com/1Panel-dev/1Panel/backend/global"
-	"github.com/1Panel-dev/1Panel/backend/utils/common"
+	"1Panel/backend/app/repo"
+	"1Panel/backend/app/service"
+	"1Panel/backend/global"
+	"1Panel/backend/utils/common"
 	"time"
 )
 

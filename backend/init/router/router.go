@@ -6,12 +6,12 @@ import (
 
 	"github.com/gin-contrib/gzip"
 
-	"github.com/1Panel-dev/1Panel/backend/global"
-	"github.com/1Panel-dev/1Panel/backend/i18n"
-	"github.com/1Panel-dev/1Panel/backend/middleware"
-	rou "github.com/1Panel-dev/1Panel/backend/router"
-	"github.com/1Panel-dev/1Panel/cmd/server/docs"
-	"github.com/1Panel-dev/1Panel/cmd/server/web"
+	"1Panel/backend/global"
+	"1Panel/backend/i18n"
+	"1Panel/backend/middleware"
+	rou "1Panel/backend/router"
+	"1Panel/cmd/server/docs"
+	"1Panel/cmd/server/web"
 	ginI18n "github.com/gin-contrib/i18n"
 	"github.com/gin-gonic/gin"
 	swaggerfiles "github.com/swaggo/files"

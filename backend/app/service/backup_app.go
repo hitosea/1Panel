@@ -10,12 +10,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/1Panel-dev/1Panel/backend/app/dto"
-	"github.com/1Panel-dev/1Panel/backend/app/model"
-	"github.com/1Panel-dev/1Panel/backend/constant"
-	"github.com/1Panel-dev/1Panel/backend/global"
-	"github.com/1Panel-dev/1Panel/backend/utils/compose"
-	"github.com/1Panel-dev/1Panel/backend/utils/files"
+	"1Panel/backend/app/dto"
+	"1Panel/backend/app/model"
+	"1Panel/backend/constant"
+	"1Panel/backend/global"
+	"1Panel/backend/utils/compose"
+	"1Panel/backend/utils/files"
 	"github.com/pkg/errors"
 )
 

@@ -11,8 +11,8 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/1Panel-dev/1Panel/backend/global"
-	"github.com/1Panel-dev/1Panel/backend/utils/files"
+	"1Panel/backend/global"
+	"1Panel/backend/utils/files"
 )
 
 type Writer struct {

@@ -1,9 +1,9 @@
 package middleware
 
 import (
-	"github.com/1Panel-dev/1Panel/backend/app/dto"
-	"github.com/1Panel-dev/1Panel/backend/buserr"
-	"github.com/1Panel-dev/1Panel/backend/constant"
+	"1Panel/backend/app/dto"
+	"1Panel/backend/buserr"
+	"1Panel/backend/constant"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"strings"

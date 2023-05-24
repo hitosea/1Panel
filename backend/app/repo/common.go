@@ -4,8 +4,8 @@ import (
 	"context"
 	"time"
 
-	"github.com/1Panel-dev/1Panel/backend/constant"
-	"github.com/1Panel-dev/1Panel/backend/global"
+	"1Panel/backend/constant"
+	"1Panel/backend/global"
 	"gorm.io/gorm"
 )
 

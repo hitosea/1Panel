@@ -1,9 +1,9 @@
 package middleware
 
 import (
-	"github.com/1Panel-dev/1Panel/backend/app/api/v1/helper"
-	"github.com/1Panel-dev/1Panel/backend/constant"
-	jwtUtils "github.com/1Panel-dev/1Panel/backend/utils/jwt"
+	"1Panel/backend/app/api/v1/helper"
+	"1Panel/backend/constant"
+	jwtUtils "1Panel/backend/utils/jwt"
 
 	"github.com/gin-gonic/gin"
 )

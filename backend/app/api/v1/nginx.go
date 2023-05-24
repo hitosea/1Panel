@@ -1,9 +1,9 @@
 package v1
 
 import (
-	"github.com/1Panel-dev/1Panel/backend/app/api/v1/helper"
-	"github.com/1Panel-dev/1Panel/backend/app/dto/request"
-	"github.com/1Panel-dev/1Panel/backend/constant"
+	"1Panel/backend/app/api/v1/helper"
+	"1Panel/backend/app/dto/request"
+	"1Panel/backend/constant"
 	"github.com/gin-gonic/gin"
 )
 

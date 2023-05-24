@@ -1,7 +1,7 @@
 package compose
 
 import (
-	"github.com/1Panel-dev/1Panel/backend/utils/cmd"
+	"1Panel/backend/utils/cmd"
 )
 
 func Up(filePath string) (string, error) {

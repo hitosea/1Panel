@@ -8,10 +8,10 @@ import (
 	"path"
 	"strings"
 
-	"github.com/1Panel-dev/1Panel/backend/app/dto"
-	"github.com/1Panel-dev/1Panel/backend/constant"
-	"github.com/1Panel-dev/1Panel/backend/utils/cmd"
-	"github.com/1Panel-dev/1Panel/backend/utils/docker"
+	"1Panel/backend/app/dto"
+	"1Panel/backend/constant"
+	"1Panel/backend/utils/cmd"
+	"1Panel/backend/utils/docker"
 	"github.com/pkg/errors"
 )
 

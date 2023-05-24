@@ -1,11 +1,11 @@
 package hook
 
 import (
-	"github.com/1Panel-dev/1Panel/backend/app/repo"
-	"github.com/1Panel-dev/1Panel/backend/global"
-	"github.com/1Panel-dev/1Panel/backend/utils/cmd"
-	"github.com/1Panel-dev/1Panel/backend/utils/common"
-	"github.com/1Panel-dev/1Panel/backend/utils/encrypt"
+	"1Panel/backend/app/repo"
+	"1Panel/backend/global"
+	"1Panel/backend/utils/cmd"
+	"1Panel/backend/utils/common"
+	"1Panel/backend/utils/encrypt"
 )
 
 func Init() {
