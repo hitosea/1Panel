@@ -12,6 +12,7 @@ declare namespace Menu {
 declare type Recordable<T = any> = Record<string, T>;
 
 declare interface ViteEnv {
+    VITE_BASE_URL: string;
     VITE_API_URL: string;
     VITE_PORT: number;
     VITE_OPEN: boolean;

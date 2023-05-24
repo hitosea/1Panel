@@ -20,6 +20,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
     const viteEnv = wrapperEnv(env);
 
     return {
+        base: `${viteEnv.VITE_BASE_URL}/`,
         resolve: {
             alias: {
                 '@': resolve(__dirname, './src'),
@@ -38,7 +39,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
             open: viteEnv.VITE_OPEN,
             host: '0.0.0.0',
             proxy: {
-                '/api/v1': {
+                [viteEnv.VITE_API_URL]: {
                     target: 'http://localhost:9999/',
                     changeOrigin: true,
                     ws: true,
@@ -81,7 +82,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
             pure: viteEnv.VITE_DROP_CONSOLE ? ['console.log', 'debugger'] : [],
         },
         build: {
-            outDir: '../cmd/server/web',
+            outDir: '../cmd/server/web' + viteEnv.VITE_BASE_URL,
             minify: 'esbuild',
             rollupOptions: {
                 output: {

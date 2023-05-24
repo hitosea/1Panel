@@ -10,6 +10,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var (
+	PanelVersion = "(untracked)"
+)
+
 func init() {
 	RootCmd.AddCommand(versionCmd)
 }
@@ -25,6 +29,7 @@ var versionCmd = &cobra.Command{
 		version := getSettingByKey(db, "SystemVersion")
 		appStoreVersion := getSettingByKey(db, "AppStoreVersion")
 
+		fmt.Printf("panel version: %s\n", PanelVersion)
 		fmt.Printf("1panel version: %s\n", version)
 		fmt.Printf("appstore version: %s\n", appStoreVersion)
 		config := configs.ServerConfig{}

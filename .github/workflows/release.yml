@@ -29,6 +29,7 @@ jobs:
           node --max_old_space_size=1024000 ./node_modules/vite/bin/vite.js build --mode production
           cd ..
 
+          sed -i "/mode:/c\  mode: stable" ./cmd/server/conf/app.yaml
           go mod tidy
           make build_backend_release
 

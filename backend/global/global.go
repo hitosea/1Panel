@@ -21,4 +21,7 @@ var (
 	Viper   *viper.Viper
 
 	Cron *cron.Cron
+
+	ExtendApiBaseUrl = "/manage/panel"
+	ExtendCtlPath    = "/usr/bin/manage-panel"
 )
