@@ -1,0 +1,40 @@
+name: release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/setup-go@v4
+        with:
+          go-version: '1.19'
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - uses: actions/checkout@v3
+
+      - name: Build
+        run: |
+          sudo apt-get install -y gcc-10-aarch64-linux-gnu
+          
+          cd frontend
+          npm install
+          node --max_old_space_size=1024000 ./node_modules/vite/bin/vite.js build --mode production
+          cd ..
+
+          go mod tidy
+          make build_backend_release
+
+      - name: Upload assets
+        uses: softprops/action-gh-release@v1
+        with:
+          files: "1panel-*.tar.gz"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
