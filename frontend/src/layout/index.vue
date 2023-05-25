@@ -9,7 +9,7 @@
             <mobile-header v-if="classObj.mobile" />
             <app-main class="app-main" />
 
-            <Footer class="app-footer" v-if="!globalStore.isFullScreen" />
+            <Footer class="app-footer" v-if="!isIdentityFailureJump && !globalStore.isFullScreen" />
         </div>
     </div>
 </template>
@@ -100,6 +100,8 @@ onMounted(() => {
     loadStatus();
     loadDataFromDB();
 });
+
+const isIdentityFailureJump = !!window['identity_failure_jump'];
 </script>
 
 <style scoped lang="scss">

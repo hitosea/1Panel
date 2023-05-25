@@ -6,7 +6,7 @@
         element-loading-svg-view-box="-10, -10, 50, 50"
         element-loading-background="rgba(122, 122, 122, 0.01)"
     >
-        <Logo :isCollapse="isCollapse"></Logo>
+        <Logo v-if="!isIdentityFailureJump" :isCollapse="isCollapse"></Logo>
         <el-scrollbar>
             <el-menu
                 :default-active="activeMenu"
@@ -17,7 +17,7 @@
                 popper-class="sidebar-container-popper"
             >
                 <SubItem :menuList="routerMenus"></SubItem>
-                <el-menu-item :index="''">
+                <el-menu-item v-if="!isIdentityFailureJump" :index="''">
                     <el-icon @click="logout">
                         <SvgIcon :iconName="'p-logout'" :className="'svg-icon'"></SvgIcon>
                     </el-icon>
@@ -92,6 +92,8 @@ const systemLogOut = async () => {
 onMounted(async () => {
     menuStore.setMenuList(menuList);
 });
+
+const isIdentityFailureJump = !!window['identity_failure_jump'];
 </script>
 
 <style lang="scss">

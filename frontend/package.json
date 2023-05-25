@@ -68,6 +68,7 @@
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-prettier": "^4.0.0",
         "eslint-plugin-vue": "^8.7.1",
+        "js-cookie": "^3.0.5",
         "lint-staged": "^12.4.2",
         "postcss": "^8.4.14",
         "postcss-html": "^1.4.1",

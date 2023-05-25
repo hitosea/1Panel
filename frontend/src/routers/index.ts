@@ -3,6 +3,10 @@ import NProgress from '@/config/nprogress';
 import { GlobalStore } from '@/store';
 import { AxiosCanceler } from '@/api/helper/axios-cancel';
 
+// @ts-ignore
+import Cookies from 'js-cookie';
+window['identity_failure_jump'] = Cookies.get('identity_failure_jump');
+
 const axiosCanceler = new AxiosCanceler();
 
 /**
@@ -12,6 +16,14 @@ router.beforeEach((to, from, next) => {
     NProgress.start();
     axiosCanceler.removeAllPending();
     const globalStore = GlobalStore();
+
+    if (to.name === 'entrance' || to.name === 'login') {
+        if (window['identity_failure_jump']) {
+            window.location.href = window['identity_failure_jump'];
+            NProgress.done();
+            return;
+        }
+    }
 
     if (to.name === 'entrance' && globalStore.isLogin) {
         if (to.params.code === globalStore.entrance) {
