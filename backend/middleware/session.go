@@ -1,6 +1,7 @@
 package middleware
 
 import (
+	"errors"
 	"strconv"
 
 	"1Panel/backend/app/api/v1/helper"
@@ -12,6 +13,17 @@ import (
 
 func SessionAuth() gin.HandlerFunc {
 	return func(c *gin.Context) {
+		xPanelUsername := c.GetHeader("X-Panel-Username")
+		xPanelPassword := c.GetHeader("X-Panel-Password")
+		if xPanelUsername != "" && xPanelPassword != "" {
+			if global.CONF.System.Username != xPanelUsername || global.CONF.System.Password != xPanelPassword {
+				helper.ErrorWithDetail(c, constant.CodeErrBadRequest, constant.ErrTypeInvalidParams, errors.New("X Panel Error"))
+			} else {
+				c.Next()
+			}
+			return
+		}
+
 		if method, exist := c.Get("authMethod"); exist && method == constant.AuthMethodJWT {
 			c.Next()
 			return

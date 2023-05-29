@@ -22,7 +22,8 @@ jobs:
 
       - name: Build
         run: |
-          sudo apt-get install -y gcc-10-aarch64-linux-gnu
+          sudo apt-get update
+          sudo apt-get install -y --fix-missing gcc-10-aarch64-linux-gnu 
           
           cd frontend
           npm install

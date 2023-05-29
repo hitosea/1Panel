@@ -313,7 +313,7 @@ const onReconnect = async (item: any) => {
     nextTick(() => {
         ctx.refs[`t-${item.index}`] &&
             ctx.refs[`t-${item.index}`][0].acceptParams({
-                endpoint: '/api/v1/terminals',
+                endpoint: (import.meta.env.VITE_API_URL as string) + '/terminals',
                 args: `id=${item.wsID}`,
                 error: res.data ? '' : 'Failed to set up the connection. Please check the host information',
             });
@@ -345,7 +345,7 @@ const onConnTerminal = async (title: string, wsID: number, isLocal?: boolean) =>
     nextTick(() => {
         ctx.refs[`t-${terminalValue.value}`] &&
             ctx.refs[`t-${terminalValue.value}`][0].acceptParams({
-                endpoint: '/api/v1/terminals',
+                endpoint: (import.meta.env.VITE_API_URL as string) + '/terminals',
                 args: `id=${wsID}`,
                 error: res.data ? '' : 'Authentication failed.  Please check the host information !',
             });

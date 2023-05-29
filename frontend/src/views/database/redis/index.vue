@@ -123,7 +123,7 @@ const checkExist = (data: App.CheckInstalled) => {
         nextTick(() => {
             terminalShow.value = true;
             terminalRef.value.acceptParams({
-                endpoint: '/api/v1/databases/redis/exec',
+                endpoint: (import.meta.env.VITE_API_URL as string) + '/databases/redis/exec',
                 args: '',
                 error: '',
             });
@@ -136,7 +136,7 @@ const initTerminal = async () => {
         nextTick(() => {
             terminalShow.value = true;
             terminalRef.value.acceptParams({
-                endpoint: '/api/v1/databases/redis/exec',
+                endpoint: (import.meta.env.VITE_API_URL as string) + '/databases/redis/exec',
                 args: '',
                 error: '',
             });

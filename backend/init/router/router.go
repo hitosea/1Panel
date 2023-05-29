@@ -19,13 +19,13 @@ import (
 )
 
 func setWebStatic(rootRouter *gin.Engine) {
-	rootRouter.StaticFS("/fav", http.FS(web.Favicon))
-	rootRouter.GET("/assets/*filepath", func(c *gin.Context) {
+	rootRouter.StaticFS(global.ExtendApiBaseUrl+"/fav", http.FS(web.Favicon))
+	rootRouter.GET(global.ExtendApiBaseUrl+"/assets/*filepath", func(c *gin.Context) {
 		staticServer := http.FileServer(http.FS(web.Assets))
 		staticServer.ServeHTTP(c.Writer, c.Request)
 	})
 
-	rootRouter.GET("/", func(c *gin.Context) {
+	rootRouter.GET(global.ExtendApiBaseUrl+"/", func(c *gin.Context) {
 		staticServer := http.FileServer(http.FS(web.IndexHtml))
 		staticServer.ServeHTTP(c.Writer, c.Request)
 	})
@@ -53,16 +53,16 @@ func Routers() *gin.Engine {
 	})
 
 	systemRouter := rou.RouterGroupApp
-	swaggerRouter := Router.Group("1panel")
+	swaggerRouter := Router.Group(global.ExtendApiBaseUrl + "1panel")
 	docs.SwaggerInfo.BasePath = "/api/v1"
 	swaggerRouter.Use(middleware.JwtAuth()).Use(middleware.SessionAuth()).GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
-	PublicGroup := Router.Group("")
+	PublicGroup := Router.Group(global.ExtendApiBaseUrl)
 	{
 		PublicGroup.GET("/health", func(c *gin.Context) {
 			c.JSON(200, "ok")
 		})
 	}
-	PrivateGroup := Router.Group("/api/v1")
+	PrivateGroup := Router.Group(global.ExtendApiBaseUrl + "/api/v1")
 	PrivateGroup.Use(middleware.GlobalLoading())
 	{
 		systemRouter.InitBaseRouter(PrivateGroup)

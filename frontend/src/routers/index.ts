@@ -3,6 +3,10 @@ import NProgress from '@/config/nprogress';
 import { GlobalStore } from '@/store';
 import { AxiosCanceler } from '@/api/helper/axios-cancel';
 
+// @ts-ignore
+import Cookies from 'js-cookie';
+window['x-panel-frame'] = Cookies.get('x-panel-frame');
+
 const axiosCanceler = new AxiosCanceler();
 
 /**
@@ -12,6 +16,10 @@ router.beforeEach((to, from, next) => {
     NProgress.start();
     axiosCanceler.removeAllPending();
     const globalStore = GlobalStore();
+
+    if (window['x-panel-frame']) {
+        globalStore.isLogin = true;
+    }
 
     if (to.name === 'entrance' && globalStore.isLogin) {
         if (to.params.code === globalStore.entrance) {

@@ -3,7 +3,7 @@
         <template #menu v-if="!globalStore.isFullScreen">
             <Menu></Menu>
         </template>
-        <template #footer v-if="!globalStore.isFullScreen">
+        <template #footer v-if="!isXPanelFrame && !globalStore.isFullScreen">
             <Footer></Footer>
         </template>
     </Layout>
@@ -16,7 +16,7 @@ import { onMounted, computed, ref, watch, onBeforeUnmount } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { GlobalStore } from '@/store';
 import { useTheme } from '@/hooks/use-theme';
-import { getSettingInfo, getSystemAvailable } from '@/api/modules/setting';
+import { getSettingInfo, getSystemAvailable, updateSetting } from '@/api/modules/setting';
 
 const i18n = useI18n();
 const loading = ref(false);
@@ -39,6 +39,7 @@ watch(
 );
 
 const loadDataFromDB = async () => {
+    await loadDataFromFrame();
     const res = await getSettingInfo();
     document.title = res.data.panelName;
     i18n.locale.value = res.data.language;
@@ -47,6 +48,30 @@ const loadDataFromDB = async () => {
     globalStore.setThemeConfig({ ...themeConfig.value, theme: res.data.theme });
     globalStore.setThemeConfig({ ...themeConfig.value, panelName: res.data.panelName });
     switchDark();
+};
+
+const loadDataFromFrame = async () => {
+    if (!window['x-panel-frame']) {
+        return;
+    }
+    const name = globalStore.urlQueryValue('name') || '管理面板';
+    const lang = globalStore.urlQueryValue('lang');
+    const theme = globalStore.urlQueryValue('theme');
+    // 标题
+    if (name && name != globalStore.themeConfig.panelName) {
+        globalStore.setThemeConfig({ ...globalStore.themeConfig, panelName: name });
+        await updateSetting({ key: 'PanelName', value: name });
+    }
+    // 主题
+    if (theme && theme != globalStore.themeConfig.theme) {
+        globalStore.setThemeConfig({ ...globalStore.themeConfig, theme: theme });
+        await updateSetting({ key: 'Theme', value: theme });
+    }
+    // 语言
+    if (lang && lang != globalStore.language) {
+        globalStore.updateLanguage(lang);
+        await updateSetting({ key: 'Language', value: lang });
+    }
 };
 
 const loadStatus = async () => {
@@ -79,4 +104,6 @@ onMounted(() => {
     loadStatus();
     loadDataFromDB();
 });
+
+const isXPanelFrame = !!window['x-panel-frame'];
 </script>

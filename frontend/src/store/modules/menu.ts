@@ -17,6 +17,9 @@ export const MenuStore = defineStore({
         },
         async setMenuList(menuList: RouteRecordRaw[]) {
             const menus = menuList.filter((item) => {
+                if (item.path === '/settings' && !!window['x-panel-frame']) {
+                    return false;
+                }
                 return whiteList.indexOf(item.path) < 0;
             });
             this.menuList = menus;

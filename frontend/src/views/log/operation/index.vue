@@ -36,7 +36,7 @@
                     <el-option :label="$t('logs.detail.files')" value="files"></el-option>
                     <el-option :label="$t('logs.detail.hosts')" value="hosts"></el-option>
                     <el-option :label="$t('logs.detail.logs')" value="logs"></el-option>
-                    <el-option :label="$t('logs.detail.settings')" value="settings"></el-option>
+                    <el-option v-if="!isXPanelFrame" :label="$t('logs.detail.settings')" value="settings"></el-option>
                 </el-select>
                 <el-select v-model="searchStatus" @change="search()" clearable style="margin-left: 10px">
                     <template #prefix>{{ $t('commons.table.status') }}</template>
@@ -219,4 +219,6 @@ const onSubmitClean = async () => {
 onMounted(() => {
     search();
 });
+
+const isXPanelFrame = !!window['x-panel-frame'];
 </script>

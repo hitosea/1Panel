@@ -2,14 +2,14 @@ package web
 
 import "embed"
 
-//go:embed index.html
+//go:embed manage/panel/index.html
 var IndexHtml embed.FS
 
-//go:embed assets/*
+//go:embed manage/panel/assets/*
 var Assets embed.FS
 
-//go:embed index.html
+//go:embed manage/panel/index.html
 var IndexByte []byte
 
-//go:embed favicon.png
+//go:embed manage/panel/favicon.png
 var Favicon embed.FS

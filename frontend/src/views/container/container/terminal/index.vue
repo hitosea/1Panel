@@ -92,7 +92,7 @@ const initTerm = (formEl: FormInstance | undefined) => {
         if (!valid) return;
         terminalOpen.value = true;
         terminalRef.value!.acceptParams({
-            endpoint: '/api/v1/containers/exec',
+            endpoint: (import.meta.env.VITE_API_URL as string) + '/containers/exec',
             args: `containerid=${form.containerID}&user=${form.user}&command=${form.command}`,
             error: '',
         });
