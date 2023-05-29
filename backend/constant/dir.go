@@ -3,7 +3,7 @@ package constant
 import (
 	"path"
 
-	"github.com/1Panel-dev/1Panel/backend/global"
+	"1Panel/backend/global"
 )
 
 var (

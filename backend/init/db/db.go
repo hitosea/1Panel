@@ -10,7 +10,7 @@ import (
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 
-	"github.com/1Panel-dev/1Panel/backend/global"
+	"1Panel/backend/global"
 )
 
 func Init() {

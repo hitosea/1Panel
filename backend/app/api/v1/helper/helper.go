@@ -6,13 +6,13 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/1Panel-dev/1Panel/backend/global"
+	"1Panel/backend/global"
 	"gorm.io/gorm"
 
-	"github.com/1Panel-dev/1Panel/backend/app/dto"
-	"github.com/1Panel-dev/1Panel/backend/buserr"
-	"github.com/1Panel-dev/1Panel/backend/constant"
-	"github.com/1Panel-dev/1Panel/backend/i18n"
+	"1Panel/backend/app/dto"
+	"1Panel/backend/buserr"
+	"1Panel/backend/constant"
+	"1Panel/backend/i18n"
 	"github.com/gin-gonic/gin"
 	"github.com/pkg/errors"
 )

@@ -3,7 +3,7 @@ package parser
 import (
 	"bufio"
 	"bytes"
-	"github.com/1Panel-dev/1Panel/backend/utils/nginx/parser/flag"
+	"1Panel/backend/utils/nginx/parser/flag"
 	"io"
 )
 

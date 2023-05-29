@@ -5,7 +5,7 @@ import (
 	"net"
 	"strings"
 
-	"github.com/1Panel-dev/1Panel/cmd/server/qqwry"
+	"1Panel/cmd/server/qqwry"
 	"golang.org/x/text/encoding/simplifiedchinese"
 )
 

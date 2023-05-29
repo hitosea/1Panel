@@ -6,12 +6,12 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/1Panel-dev/1Panel/backend/app/dto"
-	"github.com/1Panel-dev/1Panel/backend/constant"
-	"github.com/1Panel-dev/1Panel/backend/utils/cmd"
-	"github.com/1Panel-dev/1Panel/backend/utils/common"
-	"github.com/1Panel-dev/1Panel/backend/utils/firewall"
-	fireClient "github.com/1Panel-dev/1Panel/backend/utils/firewall/client"
+	"1Panel/backend/app/dto"
+	"1Panel/backend/constant"
+	"1Panel/backend/utils/cmd"
+	"1Panel/backend/utils/common"
+	"1Panel/backend/utils/firewall"
+	fireClient "1Panel/backend/utils/firewall/client"
 	"github.com/jinzhu/copier"
 )
 

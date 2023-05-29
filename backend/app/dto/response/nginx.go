@@ -1,6 +1,6 @@
 package response
 
-import "github.com/1Panel-dev/1Panel/backend/app/dto"
+import "1Panel/backend/app/dto"
 
 type NginxStatus struct {
 	Active   string `json:"active"`

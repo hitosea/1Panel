@@ -5,8 +5,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/1Panel-dev/1Panel/backend/app/dto"
-	"github.com/1Panel-dev/1Panel/backend/utils/cmd"
+	"1Panel/backend/app/dto"
+	"1Panel/backend/utils/cmd"
 	"github.com/shirou/gopsutil/v3/cpu"
 	"github.com/shirou/gopsutil/v3/disk"
 	"github.com/shirou/gopsutil/v3/host"

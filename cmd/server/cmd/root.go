@@ -5,8 +5,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/1Panel-dev/1Panel/backend/server"
-	cmdUtils "github.com/1Panel-dev/1Panel/backend/utils/cmd"
+	"1Panel/backend/server"
+	cmdUtils "1Panel/backend/utils/cmd"
 	"github.com/spf13/cobra"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"

@@ -1,6 +1,6 @@
 package request
 
-import "github.com/1Panel-dev/1Panel/backend/app/dto"
+import "1Panel/backend/app/dto"
 
 type WebsiteSSLSearch struct {
 	dto.PageInfo

@@ -7,10 +7,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/1Panel-dev/1Panel/backend/log"
+	"1Panel/backend/log"
 
-	"github.com/1Panel-dev/1Panel/backend/configs"
-	"github.com/1Panel-dev/1Panel/backend/global"
+	"1Panel/backend/configs"
+	"1Panel/backend/global"
 
 	"github.com/sirupsen/logrus"
 )

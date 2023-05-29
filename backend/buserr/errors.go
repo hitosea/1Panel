@@ -1,7 +1,7 @@
 package buserr
 
 import (
-	"github.com/1Panel-dev/1Panel/backend/i18n"
+	"1Panel/backend/i18n"
 	"github.com/pkg/errors"
 )
 

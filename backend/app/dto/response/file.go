@@ -1,7 +1,7 @@
 package response
 
 import (
-	"github.com/1Panel-dev/1Panel/backend/utils/files"
+	"1Panel/backend/utils/files"
 )
 
 type FileInfo struct {

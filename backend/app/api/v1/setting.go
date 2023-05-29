@@ -4,12 +4,12 @@ import (
 	"errors"
 	"time"
 
-	"github.com/1Panel-dev/1Panel/backend/app/api/v1/helper"
-	"github.com/1Panel-dev/1Panel/backend/app/dto"
-	"github.com/1Panel-dev/1Panel/backend/constant"
-	"github.com/1Panel-dev/1Panel/backend/global"
-	"github.com/1Panel-dev/1Panel/backend/utils/mfa"
-	"github.com/1Panel-dev/1Panel/backend/utils/ntp"
+	"1Panel/backend/app/api/v1/helper"
+	"1Panel/backend/app/dto"
+	"1Panel/backend/constant"
+	"1Panel/backend/global"
+	"1Panel/backend/utils/mfa"
+	"1Panel/backend/utils/ntp"
 	"github.com/gin-gonic/gin"
 )
 

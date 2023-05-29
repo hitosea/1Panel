@@ -1,8 +1,8 @@
 package cloud_storage
 
 import (
-	"github.com/1Panel-dev/1Panel/backend/constant"
-	"github.com/1Panel-dev/1Panel/backend/utils/cloud_storage/client"
+	"1Panel/backend/constant"
+	"1Panel/backend/utils/cloud_storage/client"
 )
 
 type CloudStorageClient interface {

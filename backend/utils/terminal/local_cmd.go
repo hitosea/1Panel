@@ -7,7 +7,7 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/1Panel-dev/1Panel/backend/global"
+	"1Panel/backend/global"
 	"github.com/creack/pty"
 	"github.com/pkg/errors"
 )

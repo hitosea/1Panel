@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/1Panel-dev/1Panel/backend/constant"
+	"1Panel/backend/constant"
 	cosSDK "github.com/tencentyun/cos-go-sdk-v5"
 )
 

@@ -1,13 +1,13 @@
 package job
 
 import (
-	"github.com/1Panel-dev/1Panel/backend/app/dto/request"
-	"github.com/1Panel-dev/1Panel/backend/app/model"
-	"github.com/1Panel-dev/1Panel/backend/app/repo"
-	"github.com/1Panel-dev/1Panel/backend/app/service"
-	"github.com/1Panel-dev/1Panel/backend/constant"
-	"github.com/1Panel-dev/1Panel/backend/global"
-	"github.com/1Panel-dev/1Panel/backend/utils/common"
+	"1Panel/backend/app/dto/request"
+	"1Panel/backend/app/model"
+	"1Panel/backend/app/repo"
+	"1Panel/backend/app/service"
+	"1Panel/backend/constant"
+	"1Panel/backend/global"
+	"1Panel/backend/utils/common"
 	"sync"
 	"time"
 )

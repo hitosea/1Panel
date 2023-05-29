@@ -3,12 +3,12 @@ package service
 import (
 	"strconv"
 
-	"github.com/1Panel-dev/1Panel/backend/app/dto"
-	"github.com/1Panel-dev/1Panel/backend/constant"
-	"github.com/1Panel-dev/1Panel/backend/global"
-	"github.com/1Panel-dev/1Panel/backend/utils/encrypt"
-	"github.com/1Panel-dev/1Panel/backend/utils/jwt"
-	"github.com/1Panel-dev/1Panel/backend/utils/mfa"
+	"1Panel/backend/app/dto"
+	"1Panel/backend/constant"
+	"1Panel/backend/global"
+	"1Panel/backend/utils/encrypt"
+	"1Panel/backend/utils/jwt"
+	"1Panel/backend/utils/mfa"
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
 	"github.com/pkg/errors"

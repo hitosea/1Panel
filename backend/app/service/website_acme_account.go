@@ -1,13 +1,13 @@
 package service
 
 import (
-	"github.com/1Panel-dev/1Panel/backend/app/dto"
-	"github.com/1Panel-dev/1Panel/backend/app/dto/request"
-	"github.com/1Panel-dev/1Panel/backend/app/dto/response"
-	"github.com/1Panel-dev/1Panel/backend/app/model"
-	"github.com/1Panel-dev/1Panel/backend/buserr"
-	"github.com/1Panel-dev/1Panel/backend/constant"
-	"github.com/1Panel-dev/1Panel/backend/utils/ssl"
+	"1Panel/backend/app/dto"
+	"1Panel/backend/app/dto/request"
+	"1Panel/backend/app/dto/response"
+	"1Panel/backend/app/model"
+	"1Panel/backend/buserr"
+	"1Panel/backend/constant"
+	"1Panel/backend/utils/ssl"
 )
 
 type WebsiteAcmeAccountService struct {

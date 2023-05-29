@@ -7,8 +7,8 @@ import (
 	"os/exec"
 	"time"
 
-	"github.com/1Panel-dev/1Panel/backend/buserr"
-	"github.com/1Panel-dev/1Panel/backend/constant"
+	"1Panel/backend/buserr"
+	"1Panel/backend/constant"
 )
 
 func Exec(cmdStr string) (string, error) {

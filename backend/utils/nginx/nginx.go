@@ -1,8 +1,8 @@
 package nginx
 
 import (
-	"github.com/1Panel-dev/1Panel/backend/utils/nginx/components"
-	"github.com/1Panel-dev/1Panel/backend/utils/nginx/parser"
+	"1Panel/backend/utils/nginx/components"
+	"1Panel/backend/utils/nginx/parser"
 )
 
 func GetConfig(path string) (*components.Config, error) {

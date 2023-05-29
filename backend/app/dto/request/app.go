@@ -1,8 +1,8 @@
 package request
 
 import (
-	"github.com/1Panel-dev/1Panel/backend/app/dto"
-	"github.com/1Panel-dev/1Panel/backend/constant"
+	"1Panel/backend/app/dto"
+	"1Panel/backend/constant"
 )
 
 type AppSearch struct {

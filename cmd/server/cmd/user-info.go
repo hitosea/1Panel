@@ -3,8 +3,8 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/1Panel-dev/1Panel/backend/global"
-	"github.com/1Panel-dev/1Panel/backend/utils/encrypt"
+	"1Panel/backend/global"
+	"1Panel/backend/utils/encrypt"
 	"github.com/spf13/cobra"
 )
 

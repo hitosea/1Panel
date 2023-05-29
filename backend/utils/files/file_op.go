@@ -6,7 +6,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/1Panel-dev/1Panel/backend/utils/cmd"
+	"1Panel/backend/utils/cmd"
 	"io"
 	"io/fs"
 	"net/http"
@@ -18,7 +18,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/1Panel-dev/1Panel/backend/global"
+	"1Panel/backend/global"
 	"github.com/mholt/archiver/v4"
 	"github.com/pkg/errors"
 	"github.com/spf13/afero"

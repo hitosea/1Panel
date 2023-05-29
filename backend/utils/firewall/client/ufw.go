@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/1Panel-dev/1Panel/backend/utils/cmd"
+	"1Panel/backend/utils/cmd"
 )
 
 type Ufw struct {

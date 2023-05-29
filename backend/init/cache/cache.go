@@ -3,8 +3,8 @@ package cache
 import (
 	"time"
 
-	"github.com/1Panel-dev/1Panel/backend/global"
-	"github.com/1Panel-dev/1Panel/backend/init/cache/badger_db"
+	"1Panel/backend/global"
+	"1Panel/backend/init/cache/badger_db"
 	"github.com/dgraph-io/badger/v4"
 )
 

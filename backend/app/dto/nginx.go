@@ -1,8 +1,8 @@
 package dto
 
 import (
-	"github.com/1Panel-dev/1Panel/backend/app/model"
-	"github.com/1Panel-dev/1Panel/backend/utils/nginx/components"
+	"1Panel/backend/app/model"
+	"1Panel/backend/utils/nginx/components"
 )
 
 type NginxFull struct {
