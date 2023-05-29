@@ -28,7 +28,7 @@ export const routerArray: RouteRecordRaw[] = [];
 
 export const rolesRoutes = [
     ...Object.keys(modules)
-        .map((key) => modules[key].default)
+        .map((key) => modules[key]['default'])
         .sort((r1, r2) => {
             r1.sort ??= Number.MAX_VALUE;
             r2.sort ??= Number.MAX_VALUE;

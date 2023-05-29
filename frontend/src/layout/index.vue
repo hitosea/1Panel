@@ -9,7 +9,7 @@
             <mobile-header v-if="classObj.mobile" />
             <app-main class="app-main" />
 
-            <Footer class="app-footer" v-if="!isIdentityFailureJump && !globalStore.isFullScreen" />
+            <Footer class="app-footer" v-if="!isXPanelFrame && !globalStore.isFullScreen" />
         </div>
     </div>
 </template>
@@ -23,7 +23,7 @@ import { MenuStore } from '@/store/modules/menu';
 import { DeviceType } from '@/enums/app';
 import { useI18n } from 'vue-i18n';
 import { useTheme } from '@/hooks/use-theme';
-import { getSettingInfo, getSystemAvailable } from '@/api/modules/setting';
+import { getSettingInfo, getSystemAvailable, updateSetting } from '@/api/modules/setting';
 useResize();
 
 const menuStore = MenuStore();
@@ -61,6 +61,7 @@ watch(
 );
 
 const loadDataFromDB = async () => {
+    await loadDataFromFrame();
     const res = await getSettingInfo();
     document.title = res.data.panelName;
     i18n.locale.value = res.data.language;
@@ -69,6 +70,30 @@ const loadDataFromDB = async () => {
     globalStore.setThemeConfig({ ...themeConfig.value, theme: res.data.theme });
     globalStore.setThemeConfig({ ...themeConfig.value, panelName: res.data.panelName });
     switchDark();
+};
+
+const loadDataFromFrame = async () => {
+    if (!window['x-panel-frame']) {
+        return;
+    }
+    const name = globalStore.urlQueryValue('name') || '管理面板';
+    const lang = globalStore.urlQueryValue('lang');
+    const theme = globalStore.urlQueryValue('theme');
+    // 标题
+    if (name && name != globalStore.themeConfig.panelName) {
+        globalStore.setThemeConfig({ ...globalStore.themeConfig, panelName: name });
+        await updateSetting({ key: 'PanelName', value: name });
+    }
+    // 主题
+    if (theme && theme != globalStore.themeConfig.theme) {
+        globalStore.setThemeConfig({ ...globalStore.themeConfig, theme: theme });
+        await updateSetting({ key: 'Theme', value: theme });
+    }
+    // 语言
+    if (lang && lang != globalStore.language) {
+        globalStore.updateLanguage(lang);
+        await updateSetting({ key: 'Language', value: lang });
+    }
 };
 
 const loadStatus = async () => {
@@ -101,7 +126,7 @@ onMounted(() => {
     loadDataFromDB();
 });
 
-const isIdentityFailureJump = !!window['identity_failure_jump'];
+const isXPanelFrame = !!window['x-panel-frame'];
 </script>
 
 <style scoped lang="scss">

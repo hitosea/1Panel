@@ -5,7 +5,7 @@ import { AxiosCanceler } from '@/api/helper/axios-cancel';
 
 // @ts-ignore
 import Cookies from 'js-cookie';
-window['identity_failure_jump'] = Cookies.get('identity_failure_jump');
+window['x-panel-frame'] = Cookies.get('x-panel-frame');
 
 const axiosCanceler = new AxiosCanceler();
 
@@ -17,12 +17,8 @@ router.beforeEach((to, from, next) => {
     axiosCanceler.removeAllPending();
     const globalStore = GlobalStore();
 
-    if (to.name === 'entrance' || to.name === 'login') {
-        if (window['identity_failure_jump']) {
-            window.location.href = window['identity_failure_jump'];
-            NProgress.done();
-            return;
-        }
+    if (window['x-panel-frame']) {
+        globalStore.isLogin = true;
     }
 
     if (to.name === 'entrance' && globalStore.isLogin) {

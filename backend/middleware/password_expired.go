@@ -1,6 +1,8 @@
 package middleware
 
 import (
+	"1Panel/backend/global"
+	"errors"
 	"strconv"
 	"time"
 
@@ -13,6 +15,17 @@ import (
 
 func PasswordExpired() gin.HandlerFunc {
 	return func(c *gin.Context) {
+		xPanelUsername := c.GetHeader("X-Panel-Username")
+		xPanelPassword := c.GetHeader("X-Panel-Password")
+		if xPanelUsername != "" && xPanelPassword != "" {
+			if global.CONF.System.Username != xPanelUsername || global.CONF.System.Password != xPanelPassword {
+				helper.ErrorWithDetail(c, constant.CodeErrBadRequest, constant.ErrTypeInvalidParams, errors.New("X Panel Error"))
+			} else {
+				c.Next()
+			}
+			return
+		}
+
 		settingRepo := repo.NewISettingRepo()
 		setting, err := settingRepo.Get(settingRepo.WithByKey("ExpirationDays"))
 		if err != nil {
