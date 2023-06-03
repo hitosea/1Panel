@@ -378,6 +378,10 @@ func (a AppService) GetAppUpdate() (*response.AppUpdateRes, error) {
 }
 
 func (a AppService) SyncAppListFromLocal() {
+	if err := getAppFromCustomRepo(); err != nil {
+		global.LOG.Errorf("get app from custom repo  error: %s", err.Error())
+		return
+	}
 	fileOp := files.NewFileOp()
 	appDir := constant.LocalAppResourceDir
 	listFile := path.Join(appDir, "list.json")

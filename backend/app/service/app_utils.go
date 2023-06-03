@@ -1,10 +1,10 @@
 package service
 
 import (
+	"1Panel/backend/app/api/v1/helper"
 	"context"
 	"encoding/json"
 	"fmt"
-	"1Panel/backend/app/api/v1/helper"
 	"github.com/compose-spec/compose-go/types"
 	"github.com/subosito/gotenv"
 	"math"
@@ -561,6 +561,35 @@ func getAppFromRepo(downloadPath, version string) error {
 		return err
 	}
 	_ = NewISettingService().Update("AppStoreVersion", version)
+	defer func() {
+		_ = fileOp.DeleteFile(packagePath)
+	}()
+	return nil
+}
+
+func getAppFromCustomRepo() error {
+	var (
+		downloadUrl = global.CONF.System.CustomRepoUrl
+		localAppDir = constant.LocalAppResourceDir
+	)
+	if downloadUrl == "" {
+		return nil
+	}
+	global.LOG.Infof("download file from %s", downloadUrl)
+	fileOp := files.NewFileOp()
+	// 备份 resource/localApps 目录到 resource/localApps_bak/localApps
+	if _, err := fileOp.CopyAndBackup(localAppDir); err != nil {
+		return err
+	}
+	// 下载 xxx/localApps.tar.gz 到 resource/localApps.tar.gz
+	packagePath := path.Join(constant.ResourceDir, path.Base(downloadUrl))
+	if err := fileOp.DownloadFile(downloadUrl, packagePath); err != nil {
+		return err
+	}
+	// resource/localApps.tar.gz 为 resource/localApps 目录，且包内根目录有 list.json 和 全部本地应用
+	if err := fileOp.Decompress(packagePath, constant.ResourceDir, files.TarGz); err != nil {
+		return err
+	}
 	defer func() {
 		_ = fileOp.DeleteFile(packagePath)
 	}()
