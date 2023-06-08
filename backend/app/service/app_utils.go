@@ -7,7 +7,9 @@ import (
 	"fmt"
 	"github.com/compose-spec/compose-go/types"
 	"github.com/subosito/gotenv"
+	"io"
 	"math"
+	"net/http"
 	"os"
 	"os/exec"
 	"path"
@@ -144,6 +146,29 @@ func handleAppInstallErr(ctx context.Context, install *model.AppInstall) error {
 		return err
 	}
 	return nil
+}
+
+func replaceYamlArgs(service map[string]interface{}, changeKeys map[string]string, arg string) {
+	if v1, ok1 := service[arg]; ok1 {
+		bs, err := json.Marshal(v1)
+		if err != nil {
+			return
+		}
+		var args []string
+		err = json.Unmarshal(bs, &args)
+		if err != nil {
+			return
+		}
+		var tmpArgs []interface{}
+		for _, arg1 := range args {
+			for k2, v2 := range changeKeys {
+				if arg1 == k2 {
+					tmpArgs = append(tmpArgs, v2)
+				}
+			}
+		}
+		service[arg] = tmpArgs
+	}
 }
 
 func deleteAppInstall(install model.AppInstall, deleteBackup bool, forceDelete bool, deleteDB bool) error {
@@ -567,27 +592,46 @@ func getAppFromRepo(downloadPath, version string) error {
 	return nil
 }
 
-func getAppFromCustomRepo() error {
+func downloadAppFromCustomRepo() error {
 	var (
-		downloadUrl = global.CONF.System.CustomRepoUrl
+		customRepo  = global.CONF.System.CustomRepo
+		versionUrl  = fmt.Sprintf("https://api.github.com/repos/%s/releases/latest", customRepo)
 		localAppDir = constant.LocalAppResourceDir
 	)
-	if downloadUrl == "" {
+	if customRepo == "" {
 		return nil
 	}
+	resp, err := http.Get(versionUrl)
+	if err != nil {
+		return err
+	}
+	defer resp.Body.Close()
+	content, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return err
+	}
+	type versionInfo struct {
+		TagName string `json:"tag_name"`
+	}
+	var version versionInfo
+	err = json.Unmarshal(content, &version)
+	if err != nil {
+		return err
+	}
+	downloadUrl := fmt.Sprintf("https://github.com/%s/releases/download/%s/localApps.tar.gz", customRepo, version.TagName)
 	global.LOG.Infof("download file from %s", downloadUrl)
 	fileOp := files.NewFileOp()
 	// 备份 resource/localApps 目录到 resource/localApps_bak/localApps
-	if _, err := fileOp.CopyAndBackup(localAppDir); err != nil {
+	if _, err = fileOp.CopyAndBackup(localAppDir); err != nil {
 		return err
 	}
 	// 下载 xxx/localApps.tar.gz 到 resource/localApps.tar.gz
 	packagePath := path.Join(constant.ResourceDir, path.Base(downloadUrl))
-	if err := fileOp.DownloadFile(downloadUrl, packagePath); err != nil {
+	if err = fileOp.DownloadFile(downloadUrl, packagePath); err != nil {
 		return err
 	}
 	// resource/localApps.tar.gz 为 resource/localApps 目录，且包内根目录有 list.json 和 全部本地应用
-	if err := fileOp.Decompress(packagePath, constant.ResourceDir, files.TarGz); err != nil {
+	if err = fileOp.Decompress(packagePath, constant.LocalAppResourceDir, files.TarGz); err != nil {
 		return err
 	}
 	defer func() {

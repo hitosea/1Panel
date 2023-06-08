@@ -295,6 +295,9 @@ func (a AppService) Install(ctx context.Context, req request.AppInstallCreate) (
 		index++
 	}
 	for k, v := range changeKeys {
+		service := servicesMap[k].(map[string]interface{})
+		replaceYamlArgs(service, changeKeys, "depends_on")
+		replaceYamlArgs(service, changeKeys, "links")
 		servicesMap[v] = servicesMap[k]
 		delete(servicesMap, k)
 	}
@@ -378,8 +381,8 @@ func (a AppService) GetAppUpdate() (*response.AppUpdateRes, error) {
 }
 
 func (a AppService) SyncAppListFromLocal() {
-	if err := getAppFromCustomRepo(); err != nil {
-		global.LOG.Errorf("get app from custom repo  error: %s", err.Error())
+	if err := downloadAppFromCustomRepo(); err != nil {
+		global.LOG.Errorf("download app from custom repo error: %s", err.Error())
 		return
 	}
 	fileOp := files.NewFileOp()
