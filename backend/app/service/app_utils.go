@@ -171,6 +171,20 @@ func replaceYamlArgs(service map[string]interface{}, changeKeys map[string]strin
 	}
 }
 
+func replaceEnvironment(service map[string]interface{}, changeKeys map[string]string) {
+	if v1, ok1 := service["environment"]; ok1 {
+		envs := v1.(map[string]interface{})
+		for k, v := range envs {
+			value := v.(string)
+			for k2, v2 := range changeKeys {
+				if value == k2 {
+					envs[k] = v2
+				}
+			}
+		}
+	}
+}
+
 func deleteAppInstall(install model.AppInstall, deleteBackup bool, forceDelete bool, deleteDB bool) error {
 	op := files.NewFileOp()
 	appDir := install.GetPath()
