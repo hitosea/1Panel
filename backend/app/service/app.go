@@ -295,10 +295,11 @@ func (a AppService) Install(ctx context.Context, req request.AppInstallCreate) (
 		index++
 	}
 	for k, v := range changeKeys {
-		service := servicesMap[k].(map[string]interface{})
-		replaceYamlArgs(service, changeKeys, "depends_on")
-		replaceYamlArgs(service, changeKeys, "links")
-		replaceEnvironment(service, changeKeys)
+		if service, yes := servicesMap[k].(map[string]interface{}); yes {
+			replaceYamlArgs(service, changeKeys, "depends_on")
+			replaceYamlArgs(service, changeKeys, "links")
+			replaceEnvironment(service, changeKeys)
+		}
 		servicesMap[v] = servicesMap[k]
 		delete(servicesMap, k)
 	}
